@@ -1,10 +1,12 @@
-# defmodule HelloPhoenix.SlackChannel do
-#   use Phoenix.Channel
+defmodule HelloPhoenix.SlackChannel do
+  use Phoenix.Channel
 
-#   def join("slack:*", _message, socket) do
-#     {:ok, socket}
-#   end
-#   def join("room:" <> _private_room_id, _params, _socket) do
-#     {:error, %{reason: "unauthorized"}}
-#   end
-# end
+  def join("slack:*", _message, socket) do
+    {:ok, socket}
+  end
+
+  # def handle_in("new_msg", %{"body" => body}, socket) do
+  #   broadcast! socket, "new_msg"
+  # end
+
+end

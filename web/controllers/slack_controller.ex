@@ -3,9 +3,8 @@ defmodule Holyjs.SlackController do
   import Slack
   
   def index(conn, %{"latest" => latest, "channel" => channel}) do
-
-    history = Slack.Web.Channels.history(channel, %{latest: latest})
-    json conn, history
+    Holyjs.Endpoint.broadcast! "slack:*", "test_msg", %{text: 111}
+    json conn, Slack.Web.Channels.history(channel, %{latest: latest})
   end
 
 end

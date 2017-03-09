@@ -2,7 +2,7 @@ defmodule Holyjs.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "slack:*", Holyjs.SlackChannel
+  channel "slack:*", Holyjs.SlackChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
