@@ -23,7 +23,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 # config slack
-config :slack, api_token: "xoxp-23657521238-23656714295-152585901381-99c997e3fded4389a828ea63911b418f"
+config :slack, api_token: "xoxb-151844922432-701rkSFPQcwGph8NryaEuHI3"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
