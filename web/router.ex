@@ -14,14 +14,12 @@ defmodule Holyjs.Router do
   end
 
   scope "/", Holyjs do
-    pipe_through :api # Use the default api stack
+    pipe_through [Holyjs.Plugs.CheckHeadApi, :api] # Use the default api stack
+
+    get "/", PageController, :index
 
     resources "/slack", SlackController
     
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Holyjs do
-  #   pipe_through :api
-  # end
 end

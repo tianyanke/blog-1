@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "types": [
+      "core-js"
+    ]
+  },
+  "include": [
+    "web/static/app"
+  ]
+}

@@ -15,6 +15,11 @@ defmodule Holyjs.Web do
   Do NOT define functions inside the quoted expressions
   below.
   """
+  def plug do
+    quote do
+      import Phoenix.Controller, only: [render: 2]
+    end  
+  end
 
   def model do
     quote do
