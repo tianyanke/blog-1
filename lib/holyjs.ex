@@ -14,6 +14,7 @@ defmodule Holyjs do
       supervisor(Holyjs.Endpoint, []),
       # Start your own worker by calling: Holyjs.Worker.start_link(arg1, arg2, arg3)
       # worker(Holyjs.Worker, [arg1, arg2, arg3]),
+      worker(Holyjs.SlackWorker, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
