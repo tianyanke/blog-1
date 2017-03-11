@@ -18,6 +18,8 @@ defmodule Holyjs.Web do
   def plug do
     quote do
       import Phoenix.Controller, only: [render: 2]
+      import Plug
+      import Plug.Conn
     end  
   end
 

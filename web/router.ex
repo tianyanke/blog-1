@@ -10,15 +10,17 @@ defmodule Holyjs.Router do
   end
 
   pipeline :api do
+    plug :put_view, Holyjs.PageView
+    plug Holyjs.CheckHeadApiPlug
     plug :accepts, ["json"]
   end
 
   scope "/", Holyjs do
-    pipe_through [Holyjs.Plugs.CheckHeadApi, :api] # Use the default api stack
-
-    get "/", PageController, :index
+    pipe_through :api
 
     resources "/slack", SlackController
+
+    get "/*path", PageController, :index
     
   end
 
