@@ -11,7 +11,7 @@ config :holyjs, Holyjs.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["webpack.devserver.js"]]
+  watchers: [node: ["server.js"]]
 
 
 # Watch static and templates for browser reloading.

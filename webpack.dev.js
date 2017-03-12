@@ -2,12 +2,12 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     app: [
-      'webpack-hot-middleware/client?http://0.0.0.0:4001',
+      'webpack-hot-middleware/client?path=http://localhost:4001/__webpack_hmr',
       'webpack/hot/only-dev-server',
-      './app/app.ts'
+      './web/static/app/app.tsx'
     ],
     vendor: ["react", 'react-dom']
   },
@@ -17,22 +17,22 @@ module.exports = {
     filename: 'app.js',
   },
   module: {
-    loaders: [
+    rules: [
+      { test: /\.css$/, use: [{ loader: "style-loader" }, { loader: "css-loader", options: { modules: true } }] },
       { test: /\.png$/, loader: "url-loader?limit=20480&name=images/[hash].[ext]" },
       { test: /\.jpg|\.svg$/, loader: "file-loader?name=images/[hash].[ext]" },
-      { test: /\.tsx?$/, loaders: ["react-hot", 'ts'] }
+      { test: /\.tsx?$/, loaders: ["react-hot-loader", 'ts-loader'] }
     ]
   },
   resolve: {
-    extensions: ['', '.webpack.js', '.tsx', '.ts', '.js'],
-    modulesDirectories: ['node_modules', 'app']
+    extensions: ['.webpack.js', '.tsx', '.ts', '.js'],
+    modules: [
+      path.join(__dirname, "web/static/app"),
+      "node_modules"
+    ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin("vendor", "[name].js"),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "commons",
-      filename: "common.bundle.js"
-    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "[name].js" }),
     new webpack.HotModuleReplacementPlugin()
   ]
 }

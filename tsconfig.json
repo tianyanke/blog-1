@@ -6,10 +6,7 @@
     "jsx": "react",
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "sourceMap": false,
-    "types": [
-      "core-js"
-    ]
+    "sourceMap": false
   },
   "include": [
     "web/static/app"

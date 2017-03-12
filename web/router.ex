@@ -10,6 +10,7 @@ defmodule Holyjs.Router do
   end
 
   pipeline :api do
+    plug :put_layout, {Holyjs.LayoutView, "app.html"}
     plug :put_view, Holyjs.PageView
     plug Holyjs.CheckHeadApiPlug
     plug :accepts, ["json"]
