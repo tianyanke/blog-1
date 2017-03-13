@@ -1,4 +1,4 @@
-defmodule Holyjs.ChannelCase do
+defmodule Coral.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule Holyjs.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Holyjs.Repo
+      alias Coral.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint Holyjs.Endpoint
+      @endpoint Coral.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Holyjs.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Coral.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Holyjs.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Coral.Repo, {:shared, self()})
     end
 
     :ok

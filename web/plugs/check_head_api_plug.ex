@@ -1,5 +1,5 @@
-defmodule Holyjs.CheckHeadApiPlug do
-  use Holyjs.Web, :plug
+defmodule Coral.CheckHeadApiPlug do
+  use Coral.Web, :plug
   import Plug.Conn
 
   def init(options), do: options

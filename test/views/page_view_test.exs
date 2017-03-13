@@ -1,3 +1,3 @@
-defmodule Holyjs.PageViewTest do
-  use Holyjs.ConnCase, async: true
+defmodule Coral.PageViewTest do
+  use Coral.ConnCase, async: true
 end

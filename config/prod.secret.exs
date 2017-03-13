@@ -8,13 +8,13 @@ use Mix.Config
 # file or create a script for recreating it, since it's
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or you later on).
-config :holyjs, Holyjs.Endpoint,
+config :Coral, Coral.Endpoint,
   secret_key_base: "2wkqsQEtjfYOot7lYMIQWd/tUnBn+m84uNhBe22mcXBZ/8eDzrWHFVK7tcXobzcH"
 
 # Configure your database
-config :holyjs, Holyjs.Repo,
+config :Coral, Coral.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
   password: "",
-  database: "holyjs_prod",
+  database: "Coral_prod",
   pool_size: 20

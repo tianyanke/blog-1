@@ -1,3 +1,3 @@
-defmodule Holyjs.PageView do
-  use Holyjs.Web, :view
+defmodule Coral.PageView do
+  use Coral.Web, :view
 end

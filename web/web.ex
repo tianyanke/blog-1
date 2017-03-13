@@ -1,12 +1,12 @@
-defmodule Holyjs.Web do
+defmodule Coral.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Holyjs.Web, :controller
-      use Holyjs.Web, :view
+      use Coral.Web, :controller
+      use Coral.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -37,12 +37,12 @@ defmodule Holyjs.Web do
     quote do
       use Phoenix.Controller
 
-      alias Holyjs.Repo
+      alias Coral.Repo
       import Ecto
       import Ecto.Query
 
-      import Holyjs.Router.Helpers
-      import Holyjs.Gettext
+      import Coral.Router.Helpers
+      import Coral.Gettext
     end
   end
 
@@ -56,9 +56,9 @@ defmodule Holyjs.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Holyjs.Router.Helpers
-      import Holyjs.ErrorHelpers
-      import Holyjs.Gettext
+      import Coral.Router.Helpers
+      import Coral.ErrorHelpers
+      import Coral.Gettext
     end
   end
 
@@ -72,10 +72,10 @@ defmodule Holyjs.Web do
     quote do
       use Phoenix.Channel
 
-      alias Holyjs.Repo
+      alias Coral.Repo
       import Ecto
       import Ecto.Query
-      import Holyjs.Gettext
+      import Coral.Gettext
     end
   end
 

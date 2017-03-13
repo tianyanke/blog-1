@@ -1,5 +1,5 @@
-defmodule Holyjs.PageController do
-  use Holyjs.Web, :controller
+defmodule Coral.PageController do
+  use Coral.Web, :controller
   
   def index(conn, _params) do
     render conn, "index.html"

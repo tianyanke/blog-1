@@ -1,5 +1,5 @@
-defmodule Holyjs.ErrorView do
-  use Holyjs.Web, :view
+defmodule Coral.ErrorView do
+  use Coral.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

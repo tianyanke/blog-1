@@ -1,3 +1,3 @@
-defmodule Holyjs.LayoutView do
-  use Holyjs.Web, :view
+defmodule Coral.LayoutView do
+  use Coral.Web, :view
 end

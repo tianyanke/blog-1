@@ -1,5 +1,5 @@
-defmodule Holyjs.Router do
-  use Holyjs.Web, :router
+defmodule Coral.Router do
+  use Coral.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -10,13 +10,13 @@ defmodule Holyjs.Router do
   end
 
   pipeline :api do
-    plug :put_layout, {Holyjs.LayoutView, "app.html"}
-    plug :put_view, Holyjs.PageView
-    plug Holyjs.CheckHeadApiPlug
+    plug :put_layout, {Coral.LayoutView, "app.html"}
+    plug :put_view, Coral.PageView
+    plug Coral.CheckHeadApiPlug
     plug :accepts, ["json"]
   end
 
-  scope "/", Holyjs do
+  scope "/", Coral do
     pipe_through :api
 
     resources "/slack", SlackController

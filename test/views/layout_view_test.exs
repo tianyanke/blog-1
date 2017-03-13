@@ -1,3 +1,3 @@
-defmodule Holyjs.LayoutViewTest do
-  use Holyjs.ConnCase, async: true
+defmodule Coral.LayoutViewTest do
+  use Coral.ConnCase, async: true
 end

@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :holyjs,
-  ecto_repos: [Holyjs.Repo]
+config :Coral,
+  ecto_repos: [Coral.Repo]
 
 # Configures the endpoint
-config :holyjs, Holyjs.Endpoint,
+config :Coral, Coral.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "/zISa6Vj2/CtIdLHK5IM0jKyZGdYI5i1UxgyG6BMxHvoNRUaEoMkGiJl0vp2wM8J",
-  render_errors: [view: Holyjs.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Holyjs.PubSub,
+  render_errors: [view: Coral.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Coral.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

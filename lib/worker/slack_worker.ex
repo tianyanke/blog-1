@@ -1,4 +1,4 @@
-defmodule Holyjs.SlackWorker do
+defmodule Coral.SlackWorker do
   import Slack
   
   def start_link() do

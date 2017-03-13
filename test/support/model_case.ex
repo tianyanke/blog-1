@@ -1,4 +1,4 @@
-defmodule Holyjs.ModelCase do
+defmodule Coral.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -16,20 +16,20 @@ defmodule Holyjs.ModelCase do
 
   using do
     quote do
-      alias Holyjs.Repo
+      alias Coral.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Holyjs.ModelCase
+      import Coral.ModelCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Holyjs.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Coral.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Holyjs.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Coral.Repo, {:shared, self()})
     end
 
     :ok
@@ -59,7 +59,7 @@ defmodule Holyjs.ModelCase do
   """
   def errors_on(struct, data) do
     struct.__struct__.changeset(struct, data)
-    |> Ecto.Changeset.traverse_errors(&Holyjs.ErrorHelpers.translate_error/1)
+    |> Ecto.Changeset.traverse_errors(&Coral.ErrorHelpers.translate_error/1)
     |> Enum.flat_map(fn {key, errors} -> for msg <- errors, do: {key, msg} end)
   end
 end

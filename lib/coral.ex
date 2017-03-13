@@ -1,4 +1,4 @@
-defmodule Holyjs do
+defmodule Coral do
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -9,24 +9,24 @@ defmodule Holyjs do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      # supervisor(Holyjs.Repo, []),
+      # supervisor(Coral.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(Holyjs.Endpoint, []),
-      # Start your own worker by calling: Holyjs.Worker.start_link(arg1, arg2, arg3)
-      # worker(Holyjs.Worker, [arg1, arg2, arg3]),
-      worker(Holyjs.SlackWorker, [])
+      supervisor(Coral.Endpoint, []),
+      # Start your own worker by calling: Coral.Worker.start_link(arg1, arg2, arg3)
+      # worker(Coral.Worker, [arg1, arg2, arg3]),
+      worker(Coral.SlackWorker, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Holyjs.Supervisor]
+    opts = [strategy: :one_for_one, name: Coral.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Holyjs.Endpoint.config_change(changed, removed)
+    Coral.Endpoint.config_change(changed, removed)
     :ok
   end
 end

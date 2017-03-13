@@ -1,4 +1,4 @@
-defmodule Holyjs.ErrorHelpers do
+defmodule Coral.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Holyjs.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Holyjs.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Coral.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Holyjs.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Coral.Gettext, "errors", msg, opts)
     end
   end
 end

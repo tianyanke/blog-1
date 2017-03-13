@@ -1,5 +1,5 @@
-defmodule Holyjs.SlackController do
-  use Holyjs.Web, :controller
+defmodule Coral.SlackController do
+  use Coral.Web, :controller
   import Slack
   
   def index(conn, %{"latest" => latest, "channel" => channel}) do

@@ -1,5 +1,5 @@
-defmodule Holyjs.PageControllerTest do
-  use Holyjs.ConnCase
+defmodule Coral.PageControllerTest do
+  use Coral.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

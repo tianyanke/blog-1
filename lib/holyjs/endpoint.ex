@@ -1,14 +1,14 @@
-defmodule Holyjs.Endpoint do
-  use Phoenix.Endpoint, otp_app: :holyjs
+defmodule Coral.Endpoint do
+  use Phoenix.Endpoint, otp_app: :Coral
 
-  socket "/socket", Holyjs.UserSocket
+  socket "/socket", Coral.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :holyjs, gzip: false,
+    at: "/", from: :Coral, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule Holyjs.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_holyjs_key",
+    key: "_Coral_key",
     signing_salt: "UcPli3MN"
 
-  plug Holyjs.Router
+  plug Coral.Router
 end

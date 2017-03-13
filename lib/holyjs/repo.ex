@@ -1,3 +1,3 @@
-# defmodule Holyjs.Repo do
-#   use Ecto.Repo, otp_app: :holyjs
+# defmodule Coral.Repo do
+#   use Ecto.Repo, otp_app: :Coral
 # end

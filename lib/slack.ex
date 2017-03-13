@@ -7,7 +7,7 @@ defmodule SlackBot do
   end
 
   def handle_event(message = %{type: "message"}, _slack, state) do
-    Holyjs.Endpoint.broadcast! "slack:" <> message.channel, "new_msg", %{body: message}
+    Coral.Endpoint.broadcast! "slack:" <> message.channel, "new_msg", %{body: message}
     {:ok, state}
   end
   def handle_event(_, _, state), do: {:ok, state}

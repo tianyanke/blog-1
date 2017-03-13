@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :holyjs, Holyjs.Endpoint,
+config :Coral, Coral.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,10 +10,10 @@ config :holyjs, Holyjs.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :holyjs, Holyjs.Repo,
+config :Coral, Coral.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "root",
   password: "",
-  database: "holyjs_test",
+  database: "Coral_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
