@@ -7,7 +7,7 @@ module.exports = {
     app: [
       'webpack-hot-middleware/client?path=http://localhost:4001/__webpack_hmr',
       'webpack/hot/only-dev-server',
-      './web/static/app/app.tsx'
+      './web/static/app/app.ts'
     ],
     vendor: ["react", 'react-dom']
   },
@@ -18,10 +18,9 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.css$/, use: [{ loader: "style-loader" }, { loader: "css-loader", options: { modules: true } }] },
       { test: /\.png$/, loader: "url-loader?limit=20480&name=images/[hash].[ext]" },
       { test: /\.jpg|\.svg$/, loader: "file-loader?name=images/[hash].[ext]" },
-      { test: /\.tsx?$/, loaders: ["react-hot-loader", 'ts-loader'] }
+      { test: /\.tsx?$/, loaders: ["react-hot-loader/webpack", 'ts-loader'] }
     ]
   },
   resolve: {
