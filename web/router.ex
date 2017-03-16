@@ -21,6 +21,10 @@ defmodule Coral.Router do
 
     resources "/slack", SlackController
 
+    scope "/reddit" do
+      resources "/r/:channel", RedditController, only: [:index]
+    end
+
     get "/*path", PageController, :index
     
   end

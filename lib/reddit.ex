@@ -2,6 +2,11 @@ defmodule Coral.Reddit do
   use HTTPoison.Base
 
   @endpoint "https://oauth.reddit.com"
+  @grant_type "password"
+  @username Base.decode64("bGltUQ==") |> elem(1)
+  @password Base.decode64("aGJqMTQ0MzUxMg==") |> elem(1)
+  @client_id Base.decode64("QlpOQWtvWGpLcTB0ZHc=") |> elem(1)
+  @secret Base.decode64("SU1wRFQ4TXp4bGFUODFXSWVhLTlFclRLc3ZF") |> elem(1)
 
   def start_link() do
     Agent.start_link fn -> init() end, name: :reddit
@@ -15,7 +20,7 @@ defmodule Coral.Reddit do
   end
 
   def init do
-    HTTPoison.post("https://www.reddit.com/api/v1/access_token", {:form, [{:grant_type, "password"}, {:username, "limQ"}, {:password, "hbj1443512"}]}, [{"Authorization", "Basic " <> Base.encode64("BZNAkoXjKq0tdw:IMpDT8MzxlaT81WIea-9ErTKsvE")}])
+    HTTPoison.post("https://www.reddit.com/api/v1/access_token", {:form, [{:grant_type, @grant_type}, {:username, @username}, {:password, @password}]}, [{"Authorization", "Basic " <> Base.encode64(@client_id <> ":" <> @secret)}])
     |> elem(1)
     |> Map.get(:body)
     |> Poison.decode

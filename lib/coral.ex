@@ -14,7 +14,8 @@ defmodule Coral do
       supervisor(Coral.Endpoint, []),
       # Start your own worker by calling: Coral.Worker.start_link(arg1, arg2, arg3)
       # worker(Coral.Worker, [arg1, arg2, arg3]),
-      worker(Coral.SlackWorker, [])
+      worker(Coral.SlackWorker, []),
+      worker(Coral.Reddit, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
