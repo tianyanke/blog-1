@@ -15,7 +15,7 @@ export const groups =
 					isExpanded: false
 				},
 				{ name: 'Slack', url: '/slack', key: 'slack' },
-				{ name: 'Reddit', url: '', key: 'reddit', isExpanded: true },
+				{ name: 'Reddit', url: '/reddit', key: 'reddit', isExpanded: true },
 				{ name: 'HackNews', url: '', key: 'hacknews' },
 				{ name: 'Medium', url: '', key: 'medium' }
 			]

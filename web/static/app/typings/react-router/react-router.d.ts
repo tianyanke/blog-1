@@ -7,11 +7,11 @@ declare module 'react-router-dom' {
   interface BrowserRouterProps {
 
   }
-
   export const BrowserRouter: React.ComponentClass<BrowserRouterProps>
 
   interface RouteProps {
     component: React.ComponentClass<any>
+    exact?: boolean
     key?: string
     location?: Location
     path: string
@@ -22,4 +22,7 @@ declare module 'react-router-dom' {
     to: string
   }
   export const Link: React.ComponentClass<LinkProps>
+
+  export const Switch: React.ComponentClass<void>
+
 }
