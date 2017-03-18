@@ -11,7 +11,7 @@ export const groups =
 						url: 'https://github.com/huangbinjie',
 						key: 'github'
 					}],
-					key: "coral",
+					key: 'coral',
 					isExpanded: false
 				},
 				{ name: 'Slack', url: '/slack', key: 'slack' },

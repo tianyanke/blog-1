@@ -6,12 +6,12 @@ import { groups } from '../../config/nav_config'
 import * as Style from './nav_style'
 
 export default class Nav extends React.Component<void, void> {
-	static contextTypes = {
+	private static contextTypes = {
 		router: React.PropTypes.shape({
 			history: React.PropTypes.shape({
+				createHref: React.PropTypes.func.isRequired,
 				push: React.PropTypes.func.isRequired,
-				replace: React.PropTypes.func.isRequired,
-				createHref: React.PropTypes.func.isRequired
+				replace: React.PropTypes.func.isRequired
 			}).isRequired
 		}).isRequired
 	}

@@ -4,12 +4,12 @@ import Nav from '../components/nav/nav'
 import Main from './main/main'
 import Reddit from './reddit/reddit'
 
-import "office-ui-fabric-react/dist/css/fabric.min.css"
+import 'office-ui-fabric-react/dist/css/fabric.min.css'
 
 import * as Style from './container_style'
 
 export default class Container extends React.Component<any, any> {
-	render() {
+	public render() {
 		return (
 			<BrowserRouter>
 				<div className={Style.CONTAINER}>

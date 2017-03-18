@@ -1,5 +1,5 @@
 import { style } from 'typestyle'
-import { setupPage, normalize, fillParent, horizontal } from "csstips"
+import { setupPage, normalize, fillParent, horizontal } from 'csstips'
 
 normalize()
 setupPage('#root')

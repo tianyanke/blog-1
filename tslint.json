@@ -1,0 +1,28 @@
+{
+	"extends": [
+		"tslint:latest"
+	],
+	"rules": {
+		"ordered-imports": [
+			false
+		],
+		"quotemark": [
+			true,
+			"single",
+			"jsx-double",
+			"avoid-escape"
+		],
+		"semicolon": [
+			true,
+			"never"
+		],
+		"indent": [
+			true,
+			"tabs"
+		],
+		"trailing-comma": [
+			false
+		],
+		"object-literal-sort-keys": false
+	}
+}
