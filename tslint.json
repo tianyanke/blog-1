@@ -3,6 +3,7 @@
 		"tslint:latest"
 	],
 	"rules": {
+		"arrow-parens": false,
 		"ordered-imports": [
 			false
 		],
