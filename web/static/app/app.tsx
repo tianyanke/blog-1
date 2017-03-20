@@ -1,5 +1,5 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import Container from './views/container'
+import App from './views/view'
 
-render(<Container />, document.getElementById('root'))
+render(<App />, document.getElementById('root'))
