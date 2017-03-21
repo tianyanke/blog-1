@@ -1,28 +1,30 @@
-/**
- * Custom typedef for React Router v4 (WIP).
- */
+declare module "react-router" {
+	export interface IMatch {
+		isExact: boolean
+		params: object
+		path: string
+		url: string
+	}
 
-declare module 'react-router-dom' {
+	export interface ILocation {
+		hash: string
+		key: string
+		pathname: string
+		search: string
+		state: object
+	}
 
-  interface BrowserRouterProps {
+	export interface IHistory {
+		push: (url: string) => void
+	}
 
-  }
-  export const BrowserRouter: React.ComponentClass<BrowserRouterProps>
+	type mixinRouter = IMatch & ILocation & IHistory
 
-  interface RouteProps {
-    component: React.ComponentClass<any>
-    exact?: boolean
-    key?: string
-    location?: Location
-    path: string
-  }
-  export const Route: React.ComponentClass<RouteProps>
+	export interface IWithRouter {
+		match: IMatch
+		location: ILocation
+		history: IHistory
+	}
 
-  interface LinkProps {
-    to: string
-  }
-  export const Link: React.ComponentClass<LinkProps>
-
-  export const Switch: React.ComponentClass<void>
-
+	export function withRouter<T, C>(conponent: any): new (props?: T, context?: C) => any
 }
