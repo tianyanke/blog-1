@@ -1,9 +1,12 @@
 import * as React from 'react'
 import { lift, inject } from 'meng'
 import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType } from 'office-ui-fabric-react'
+import Space from '../../components/space/space'
 import { list } from '../../apis/reddit_api'
 import { IRedditType, IRedditListType } from '../../types/reddit_type'
 import * as Style from './reddit_style'
+
+const hostname = 'https://www.reddit.com'
 
 type Props = {
 	posts: IRedditType
@@ -25,15 +28,28 @@ export default class Reddit extends React.Component<Props, void> {
 
 	private renderCell = (item: IRedditListType, index: number) => {
 		return (
-			<div className={Style.LI}>
+			<div key={item.data.id} className={Style.LI}>
 				<div className={Style.LI_NUM}>{index + 1}</div>
 				<div className={Style.LI_UPS}>{item.data.ups}</div>
-				<div>
-					<header>
+				<div className={Style.LI_CONTENT}>
+					<header className={Style.LI_CONTENT_HEADER}>
 						<a href={item.data.url}>{item.data.title}</a>
-						<a href={'https://www.reddit.com/domain/' + item.data.domain}>{item.data.domain}</a>
+						<Space num={3} />
+						<a
+							className={Style.LI_CONTENT_DOMAIN}
+							href={`${hostname}/domain/` + item.data.domain}>
+							<small>({item.data.domain})</small>
+						</a>
 					</header>
-					<footer>{item.data.author} | {item.data.num_comments} | NaN小时前</footer>
+					<footer>
+						post by {item.data.author}
+						<Space />|<Space />
+						{item.data.num_comments}
+						<Space />
+						<a href={hostname + item.data.permalink}>comments</a>
+						<Space />|<Space />
+						NaN小时前
+						</footer>
 				</div>
 			</div>
 		)
