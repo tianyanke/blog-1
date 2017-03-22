@@ -9,7 +9,8 @@ defmodule Coral.Reddit do
   @secret Base.decode64("SU1wRFQ4TXp4bGFUODFXSWVhLTlFclRLc3ZF") |> elem(1)
 
   def start_link() do
-    Agent.start_link fn -> init() end, name: :reddit
+    :timer.apply_interval 3500, __MODULE__, :init, []
+    Agent.start_link fn -> init() end, name: :reddit    
   end
 
   def process_url(url), do: @endpoint <> url
