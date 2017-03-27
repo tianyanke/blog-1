@@ -19,7 +19,8 @@ defmodule Coral.Router do
   scope "/", Coral do
     pipe_through :api
 
-    resources "/slack", SlackController
+    get "/slack", SlackController, :index
+    get "/slack/user", SlackController, :user
 
     scope "/reddit" do
       resources "/r/:channel", RedditController, only: [:index]

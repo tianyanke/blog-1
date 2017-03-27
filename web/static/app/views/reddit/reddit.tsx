@@ -49,7 +49,7 @@ export default class Reddit extends React.Component<Props, void> {
 						<a href={hostname + item.data.permalink}>comments</a>
 						<Space />|<Space />
 						NaN小时前
-						</footer>
+					</footer>
 				</div>
 			</div>
 		)

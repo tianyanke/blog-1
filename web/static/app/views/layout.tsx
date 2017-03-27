@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Nav from '../components/nav/nav'
 import Main from './main/main'
 import Reddit from './reddit/reddit'
+import Slack from './slack/slack'
 
 import 'office-ui-fabric-react/dist/css/fabric.min.css'
 import * as Style from './layout_style'
@@ -16,6 +17,7 @@ export default class RootLayout extends React.Component<void, void> {
 				<Switch>
 					<Route path="/" exact component={Main} />
 					<Route path="/reddit" component={Reddit} />
+					<Route path="/slack" component={Slack} />
 				</Switch>
 			</div>
 		)
