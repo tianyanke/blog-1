@@ -39,7 +39,8 @@ defmodule Coral.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:httpotion, "~> 3.0.2"},
-     {:slack, "~> 0.10.0"}]
+     {:slack, "~> 0.10.0"},
+     {:exrm, "~> 1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
