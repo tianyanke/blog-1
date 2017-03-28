@@ -13,19 +13,28 @@ import { ISlackListType, ISlackUserType } from '../../types/slack_type'
 type Props = {
 	user: ISlackUserType
 	post: ISlackListType
+	latest: string
 }
 
+const injectedList = (currentStore: Props, nextStore: Props) => {
+	return currentStore.latest !== nextStore.latest
+		? list('C0PKC07FB', nextStore.latest)
+			.do(newPost => newPost.messages = nextStore.post.messages.concat(newPost.messages))
+		: null
+}
+
+@inject(injectedList, 'post')
 @inject(user, 'user')
-@inject(() => list('C0PKC07FB', 0), 'post')
-@lift({ post: null, user: null })
+@inject(() => list('C0PKC07FB', '0'), 'post')
+@lift({ post: null, user: null, latest: '0' })
 export default class Slack extends React.Component<Props, void> {
 	public render() {
 		return (
 			<div className={Style.SLACK}>
 				<Title />
 				<Flex flexGrow={1} flexDirection={'row'}>
-					<Messages post={this.props.post} user={this.props.user} />
-					<Users />
+					<Messages post={this.props.post} user={this.props.user} latest={this.props.latest} />
+					<Users user={this.props.user} />
 				</Flex>
 			</div>
 		)

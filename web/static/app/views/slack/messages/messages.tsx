@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {
-	FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType, Persona, PersonaSize, PersonaPresence
-} from 'office-ui-fabric-react'
+import Store from 'meng'
+import { Spinner, SpinnerType } from 'office-ui-fabric-react'
+import Scroller from 'react-iscroller'
 
 import * as Style from './message_style'
 
@@ -10,37 +10,39 @@ import { ISlackListType, ISlackUserType, ISlackMessage } from '../../../types/sl
 type Props = {
 	user: ISlackUserType
 	post: ISlackListType
+	latest: string
 }
-
 
 export default class Messages extends React.Component<Props, void> {
 	public render() {
 		const user = this.props.user
 		const post = this.props.post
-		let mergedList
-		if (user && post) {
-			post.messages.map(message =>
-				message.user = user.members.find(member => member.id === message.user as any)
+		const mergedList = user && post && post.messages.map(message => {
+			const userinfo = user.members.find(member => member.id === message.user as any)
+			return (
+				<div key={message.ts} className={Style.LIST_ITEM}>
+					<img className={Style.LIST_AVATAR} src={userinfo!.profile.image_48} />
+					<div className={Style.LIST_CONTENT}>
+						<header>{userinfo!.name}</header>
+						<main>{message.text}</main>
+					</div>
+				</div>
 			)
-			mergedList = post
-		}
+		})
+		console.log(111)
 		return (
-			<FocusZone className={Style.MESSAGES} direction={FocusZoneDirection.vertical}>
-				{mergedList && <List className={Style.LIST} items={mergedList.messages} onRenderCell={this.renderCell} />}
+			<div className={Style.MESSAGES}>
+				<Scroller onEnd={this.onEnd}>{mergedList}</Scroller>
 				{!mergedList && <Spinner type={SpinnerType.large} label="正在努力加载中..." />}
-			</FocusZone>
+			</div>
 		)
 	}
 
-	private renderCell = (item: ISlackMessage, index: number) => {
-		return (
-			<div className={Style.LIST_ITEM}>
-				<img className={Style.LIST_AVATAR} src={item.user!.profile.image_48} />
-				<div className={Style.LIST_CONTENT}>
-					<header>{item.user!.name}</header>
-					<main>{item.text}</main>
-				</div>
-			</div>
-		)
+	private onEnd = () => {
+		if (this.props.post.has_more) {
+			const messages = this.props.post.messages
+			const latest = messages[messages.length - 1].ts
+			Store.children.Slack.setState({ latest })
+		}
 	}
 }

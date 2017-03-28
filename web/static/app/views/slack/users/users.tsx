@@ -1,10 +1,28 @@
 import * as React from 'react'
+import { Persona, PersonaSize } from 'office-ui-fabric-react'
+import * as Style from './user_style'
+import { ISlackListType, ISlackUserType } from '../../../types/slack_type'
 
-export default class Users extends React.Component<void, void> {
+type Props = {
+	user: ISlackUserType
+}
+
+export default class Users extends React.Component<Props, void> {
 	public render() {
+		const personas = this.props.user && this.props.user.members
+			.filter(member => member.is_bot === false)
+			.filter(member => member.deleted === false)
+			.map(member => ({
+				key: member.id,
+				className: Style.PERSONA,
+				primaryText: member.name,
+				secondaryText: member.profile.title,
+				imageUrl: member.profile.image_48
+			}))
+			.map(personaProps => <Persona {...personaProps} />)
 		return (
 			<div>
-				列表哦
+				{personas}
 			</div>
 		)
 	}

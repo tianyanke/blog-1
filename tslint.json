@@ -21,6 +21,7 @@
 			true,
 			"tabs"
 		],
+		"curly": false,
 		"trailing-comma": [
 			false
 		],

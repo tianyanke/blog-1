@@ -1,12 +1,7 @@
 import { style } from 'typestyle'
-import { flex, fillParent, horizontal } from 'csstips'
+import { flex, fillParent, vertical, horizontal } from 'csstips'
 
-export const MESSAGES = style({
-	flex: 1,
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center'
-})
+export const MESSAGES = style(flex)
 
 export const LIST = style(flex, fillParent)
 
@@ -27,7 +22,6 @@ export const LIST_CONTENT = style(flex, {
 			color: '#666'
 		},
 		main: {
-			height: '30px',
 			lineHeight: '35px',
 			color: '#333'
 		}

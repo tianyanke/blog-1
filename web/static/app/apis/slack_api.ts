@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs'
 import { ISlackListType, ISlackUserType } from '../types/slack_type'
 
-export const list = (channel: string, latest: number) =>
+export const list = (channel: string, latest: string) =>
 	Observable
 		.ajax
 		.get(`/slack?channel=${channel}&latest=${latest}`, { 'if-api': true })
