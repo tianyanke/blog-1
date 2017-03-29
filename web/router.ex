@@ -26,7 +26,7 @@ defmodule Coral.Router do
       resources "/r/:channel", RedditController, only: [:index]
     end
 
-    get "/*path", PageController, :index
+    get "/", PageController, :index
     
   end
 
