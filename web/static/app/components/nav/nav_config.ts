@@ -6,12 +6,19 @@ export const groups =
 				{
 					name: 'Coral',
 					url: '/',
-					links: [{
-						name: 'github',
-						url: 'https://github.com/huangbinjie',
-						key: 'github'
-					}],
-					key: 'coral',
+					links: [
+						{
+							name: 'github',
+							url: 'https://github.com/huangbinjie',
+							key: 'github'
+						},
+						{
+							name: '翻译',
+							url: 'https://github.com/useroriented/useroriented.github.io',
+							key: 'translation'
+						}
+					],
+					key: '',
 					isExpanded: false
 				},
 				{ name: 'Slack', url: '/slack', key: 'slack' },
