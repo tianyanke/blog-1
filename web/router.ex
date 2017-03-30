@@ -22,6 +22,11 @@ defmodule Coral.Router do
     get "/slack", SlackController, :index
     get "/slack/user", SlackController, :user
 
+    get "/medium", MediumController, :index
+    get "/medium/tag/:name", MediumController, :tag
+
+    # get "/medium", MediumController, :tag
+
     scope "/reddit" do
       resources "/r/:channel", RedditController, only: [:index]
     end
