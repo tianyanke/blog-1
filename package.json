@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "csstips": "^0.2.0",
+    "firebase": "^3.7.4",
     "history": "^4.6.1",
     "meng": "^3.2.0",
     "office-ui-fabric-react": "^2.5.1",

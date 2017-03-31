@@ -1,22 +1,23 @@
-import * as React from 'react'
-import { lift, inject } from 'meng'
-import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType } from 'office-ui-fabric-react'
-import Space from '../../components/space/space'
-import { list } from '../../apis/reddit_api'
-import { IRedditType, IRedditListType } from '../../types/reddit_type'
-import * as Style from './reddit_style'
+import * as React from "react"
+import { lift, inject } from "meng"
+import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType } from "office-ui-fabric-react"
+import Space from "../../components/space/space"
+import { list } from "../../apis/reddit_api"
+import { IRedditType, IRedditListType } from "../../types/reddit_type"
+import { friendlyDate } from "../../utils/unix_time_to_date"
+import * as Style from "./reddit_style"
 
-const hostname = 'https://www.reddit.com'
+const hostname = "https://www.reddit.com"
 
 type Props = {
 	posts: IRedditType
 }
 
-@inject(list, 'posts')
+@inject(list, "posts")
 @lift({ posts: null })
 export default class Reddit extends React.Component<Props, void> {
 	public render() {
-		const list = this.props.posts ? this.props.posts.data.children.slice(2) : null
+		const list = this.props.posts ? this.props.posts.data.children : null
 		return (
 			<FocusZone direction={FocusZoneDirection.vertical}>
 				<TextField defaultValue="/r/javascript" label="频道" />
@@ -48,7 +49,7 @@ export default class Reddit extends React.Component<Props, void> {
 						<Space />
 						<a href={hostname + item.data.permalink}>comments</a>
 						<Space />|<Space />
-						NaN小时前
+						{friendlyDate(item.data.created_utc)}
 					</footer>
 				</div>
 			</div>

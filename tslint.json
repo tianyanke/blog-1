@@ -9,7 +9,7 @@
 		],
 		"quotemark": [
 			true,
-			"single",
+			"double",
 			"jsx-double",
 			"avoid-escape"
 		],
@@ -20,6 +20,9 @@
 		"indent": [
 			true,
 			"tabs"
+		],
+		"one-line": [
+			"check-else"
 		],
 		"curly": false,
 		"trailing-comma": [

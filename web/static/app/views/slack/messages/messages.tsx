@@ -29,7 +29,6 @@ export default class Messages extends React.Component<Props, void> {
 				</div>
 			)
 		})
-		console.log(111)
 		return (
 			<div className={Style.MESSAGES}>
 				<Scroller onEnd={this.onEnd}>{mergedList}</Scroller>
