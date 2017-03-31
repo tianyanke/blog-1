@@ -18,7 +18,6 @@ type Props = {
 export default class Reddit extends React.Component<Props, void> {
 	public render() {
 		const posts = this.props.posts
-		console.log(posts)
 		return (
 			<FocusZone direction={FocusZoneDirection.vertical}>
 				{!posts && <Spinner type={SpinnerType.large} label="正在努力加载中..." />}
