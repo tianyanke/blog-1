@@ -20,7 +20,6 @@ const watchDisplayApi = (currentStore: Props, nextStore: Props) =>
 @lift({ posts: null, display: "newstories" })
 export default class HN extends React.Component<Props, void> {
 	public render() {
-		console.log(this.props.posts)
 		return (
 			<FocusZone direction={FocusZoneDirection.vertical}>
 				<Title />
