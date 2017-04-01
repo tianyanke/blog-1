@@ -19,6 +19,8 @@ export const list = (page: string) => new Observable(observer => {
 
 		Promise
 			.all(promiseIds)
+			// 不知道怎么回事firebase第二次查询有可能返回null，先过滤掉
+			.then(values => values.filter(value => value !== null))
 			.then(values => observer.next(values))
 			.catch(error => observer.error(error))
 
