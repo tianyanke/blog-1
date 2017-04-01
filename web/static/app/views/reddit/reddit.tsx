@@ -1,6 +1,6 @@
 import * as React from "react"
 import { lift, inject } from "meng"
-import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType } from "office-ui-fabric-react"
+import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType, Link } from "office-ui-fabric-react"
 import Space from "../../components/space/space"
 import { list } from "../../apis/reddit_api"
 import { IRedditType, IRedditListType } from "../../types/reddit_type"
@@ -34,20 +34,20 @@ export default class Reddit extends React.Component<Props, void> {
 				<div className={Style.LI_UPS}>{item.data.ups}</div>
 				<div className={Style.LI_CONTENT}>
 					<header className={Style.LI_CONTENT_HEADER}>
-						<a href={item.data.url}>{item.data.title}</a>
+						<Link className={Style.LI_CONTENT_TITLE} href={item.data.url}>{item.data.title}</Link>
 						<Space num={3} />
-						<a
+						<Link
 							className={Style.LI_CONTENT_DOMAIN}
 							href={`${hostname}/domain/` + item.data.domain}>
 							<small>({item.data.domain})</small>
-						</a>
+						</Link>
 					</header>
 					<footer>
 						post by {item.data.author}
 						<Space />|<Space />
 						{item.data.num_comments}
 						<Space />
-						<a href={hostname + item.data.permalink}>comments</a>
+						<Link href={hostname + item.data.permalink}>comments</Link>
 						<Space />|<Space />
 						{friendlyDate(item.data.created_utc)}
 					</footer>

@@ -9,7 +9,7 @@ export interface ISlackListType {
 export interface ISlackMessage {
 	text: string
 	ts: string
-	type: 'message'
+	type: "message"
 	user: Optional<ISlackMember>
 }
 
