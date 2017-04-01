@@ -23,7 +23,7 @@ export const groups =
 				},
 				{ name: "Slack", url: "/slack", key: "slack" },
 				{ name: "Reddit", url: "/reddit", key: "reddit", isExpanded: true },
-				{ name: "HackNews", url: "/hn", key: "hacknews" },
+				{ name: "HackNews", url: "/hn", key: "hn" },
 				{ name: "Medium", url: "", key: "medium" }
 			]
 		}
