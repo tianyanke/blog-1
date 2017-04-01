@@ -25,7 +25,7 @@ export const LI_CONTENT = style(flex1)
 export const LI_CONTENT_HEADER = style({
 	marginBottom: "8px"
 })
-
-export const LI_CONTENT_DOMAIN = style({
-	color: "#888"
+export const LI_CONTENT_TITLE = style({
+	fontSize: "18px",
+	fontWeight: 700
 })

@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as Style from './title_style'
+import * as React from "react"
+import * as Style from "./title_style"
 
 export default class Title extends React.Component<void, void> {
 	public render() {
