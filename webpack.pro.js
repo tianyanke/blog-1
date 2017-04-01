@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './priv/static'),
-    publicPath: 'http://localhost:4001/',
+    publicPath: '/',
     filename: 'app.js'
   },
   module: {
