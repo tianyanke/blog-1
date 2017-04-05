@@ -6,7 +6,8 @@
     "jsx": "react",
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "skipLibCheck": true
   },
   "include": [
     "web/static/app"
