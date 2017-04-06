@@ -4,3 +4,4 @@ node_modules/
 priv/static
 /rel
 *.dump
+.DS_Store

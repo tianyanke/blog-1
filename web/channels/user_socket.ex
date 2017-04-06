@@ -2,7 +2,7 @@ defmodule Coral.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "slack:*", Coral.SlackChannel
+  channel "chat:lobby", Coral.ChatChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,

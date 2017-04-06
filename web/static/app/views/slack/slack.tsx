@@ -4,7 +4,6 @@ import Messages from "./messages/messages"
 import Title from "./title/title"
 import Users from "./users/users"
 import Flex from "../../components/flex/flex"
-
 import * as Style from "./slack_style"
 
 import { list, user } from "../../apis/slack_api"
