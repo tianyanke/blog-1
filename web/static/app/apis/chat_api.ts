@@ -1,15 +1,20 @@
 import { socket } from "../socket/socket"
-import { Observable } from "rxjs"
+import { Observable, ReplaySubject } from "rxjs"
 
-export const channel = socket.channel("chat:lobby", {})
+const input$ = new ReplaySubject(1)
 
-export const push = (user: string, body: string) => channel.push("new:msg", { user, body })
-
-export const connect = (user: string) => new Observable(observer => {
+export const connect = new Observable(observer => {
+	const channel = socket.channel("chat:lobby", {})
 	channel.join()
 		.receive("ok", resp => console.info("已连接聊天室"))
 		.receive("error", resp => observer.error(resp.response))
 	channel.on("new:msg", payload => observer.next(payload))
-	return () => channel.leave()
+	const subscription = input$.subscribe(msg => channel.push("new:msg", msg))
+	return () => {
+		channel.leave()
+		subscription.unsubscribe()
+	}
 })
 	.scan((acc: Array<object>, x) => [...acc, x], [])
+
+export const push = (user: string, body: string) => input$.next({ user, body })

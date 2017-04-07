@@ -6,8 +6,8 @@ defmodule Coral.UserSocket do
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,
-    timeout: 45_000,
-    check_origin: ["//corol.me"]
+    timeout: 45_000
+    # check_origin: ["//corol.me"]
   # transport :longpoll, Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can

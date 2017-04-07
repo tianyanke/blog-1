@@ -21,7 +21,7 @@ type Store = {
 }
 
 const watchUser = (currentStcore: Props, nextStore: Props) =>
-	currentStcore.user !== nextStore.user ? connect(nextStore.user) : null
+	currentStcore.user !== nextStore.user ? connect : null
 
 @inject(watchUser, "messages")
 @inject(Store, (rootStore: Store) => ({ user: rootStore.user }))
