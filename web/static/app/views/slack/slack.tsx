@@ -25,7 +25,7 @@ const injectedList = (currentStore: Props, nextStore: Props) => {
 @inject(injectedList, "post")
 @inject(user, "user")
 @inject(() => list("C0PKC07FB", "0"), "post")
-@lift({ post: null, user: null, latest: "0" })
+@lift({ latest: "0" })
 export default class Slack extends React.Component<Props, void> {
 	public render() {
 		return (
