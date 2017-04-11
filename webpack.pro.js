@@ -35,11 +35,11 @@ module.exports = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: '[name].js' }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   },
-    //   mangle: false
-    // })
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      mangle: true
+    })
   ]
 }
