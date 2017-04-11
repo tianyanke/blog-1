@@ -23,6 +23,6 @@ declare module 'react-router-dom' {
   }
   export const Link: React.ComponentClass<LinkProps>
 
-  export const Switch: React.ComponentClass<void>
+  export const Switch: React.ComponentClass<{}>
 
 }

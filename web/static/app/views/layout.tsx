@@ -11,7 +11,7 @@ import "office-ui-fabric-react/dist/css/fabric.min.css"
 import * as Style from "./layout_style"
 
 
-export default class RootLayout extends React.Component<void, void> {
+export default class RootLayout extends React.Component<{}, void> {
 	public render() {
 		return (
 			<div className={Style.CONTAINER}>

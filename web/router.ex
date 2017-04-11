@@ -16,6 +16,16 @@ defmodule Coral.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :api do
+    plug :put_layout, {Coral.LayoutView, "game.html"}
+    plug :put_view, Coral.PageView
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
   scope "/", Coral do
     pipe_through :api
 
@@ -33,6 +43,13 @@ defmodule Coral.Router do
 
     get "/*path", PageController, :index
     
+  end
+
+  scope "/maplestory", Coral do
+    pipe_through :game
+
+    get "/maplestory", PageController, :game
+
   end
 
 end

@@ -5,4 +5,8 @@ defmodule Coral.PageController do
     render conn, "index.html"
   end
 
+  def game(conn, _params) do
+    render conn, "index.html"
+  end
+
 end
