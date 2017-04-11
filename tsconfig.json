@@ -3,10 +3,14 @@
     "strict": true,
     "experimentalDecorators": true,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es5",
     "jsx": "react",
     "sourceMap": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ]
   },
   "include": [
     "web/static/app"
