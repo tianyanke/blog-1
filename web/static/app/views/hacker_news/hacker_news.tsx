@@ -17,7 +17,7 @@ const watchDisplayApi = (currentStore: Props, nextStore: Props) =>
 
 @inject(watchDisplayApi, "posts")
 @inject(() => list("newstories"), "posts")
-@lift({ display: "newstories" })
+@lift({ display: "newstories" }, "HN")
 export default class HN extends React.Component<Props, void> {
 	public render() {
 		return (

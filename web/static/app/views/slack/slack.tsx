@@ -1,5 +1,5 @@
 import * as React from "react"
-import { lift, inject } from "meng"
+import Store, { lift, inject } from "meng"
 import Messages from "./messages/messages"
 import Title from "./title/title"
 import Users from "./users/users"
@@ -25,7 +25,7 @@ const injectedList = (currentStore: Props, nextStore: Props) => {
 @inject(injectedList, "post")
 @inject(user, "user")
 @inject(() => list("C0PKC07FB", "0"), "post")
-@lift({ latest: "0" })
+@lift({ latest: "0" }, "Slack")
 export default class Slack extends React.Component<Props, void> {
 	public render() {
 		return (

@@ -45,11 +45,11 @@ defmodule Coral.Router do
     
   end
 
-  scope "/maplestory", Coral do
-    pipe_through :game
+  # scope "/maplestory", Coral do
+  #   pipe_through :game
 
-    get "/maplestory", PageController, :game
+  #   get "/maplestory", PageController, :game
 
-  end
+  # end
 
 end

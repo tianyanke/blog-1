@@ -25,7 +25,7 @@ const watchUser = (currentStcore: Props, nextStore: Props) =>
 
 @inject(watchUser, "messages")
 @inject(Store, (rootStore: Store) => ({ user: rootStore.user }))
-@lift({ messages: [] as TMessage[] })
+@lift({ messages: [] as TMessage[] }, "Chat")
 export default class Chat extends React.Component<Props, void> {
 	public render() {
 		const user = this.props.user

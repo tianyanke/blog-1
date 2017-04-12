@@ -14,7 +14,7 @@ type Props = {
 }
 
 @inject(list, "posts")
-@lift({})
+@lift({}, "Reddit")
 export default class Reddit extends React.Component<Props, void> {
 	public render() {
 		const list = this.props.posts ? this.props.posts.data.children : null
