@@ -24,7 +24,7 @@ export default class Messages extends React.Component<Props, void> {
 					<img className={Style.LIST_AVATAR} src={userinfo!.profile.image_48} />
 					<div className={Style.LIST_CONTENT}>
 						<header>{userinfo!.name}</header>
-						<pre>{message.text}</pre>
+						<main>{message.text}</main>
 					</div>
 				</div>
 			)
