@@ -2,11 +2,12 @@ import * as React from "react"
 import Store, { lift, inject } from "meng"
 import Messages from "./messages/messages"
 import Title from "./title/title"
+import TextInput from "./textinput/textinput"
 import Users from "./users/users"
 import Flex from "../../components/flex/flex"
 import * as Style from "./slack_style"
 
-import { list, user, connect, push } from "../../apis/slack_api"
+import { list, user, connect } from "../../apis/slack_api"
 import { ISlackListType, ISlackUserType, ISlackMessage } from "../../types/slack_type"
 
 type Props = {
@@ -33,6 +34,7 @@ export default class Slack extends React.Component<Props, void> {
 		return (
 			<div className={Style.SLACK}>
 				<Title />
+				<TextInput />
 				<Flex flexGrow={1} flexDirection={"row"}>
 					<Messages newmsg={this.props.newmsg} post={this.props.post} user={this.props.user} latest={this.props.latest} />
 					<Users user={this.props.user} />
