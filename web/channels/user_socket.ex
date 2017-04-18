@@ -3,7 +3,7 @@ defmodule Coral.UserSocket do
 
   ## Channels
   channel "chat:lobby", Coral.ChatChannel
-
+  channel "slack:lobby", Coral.SlackChannel
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket,
     timeout: 45_000

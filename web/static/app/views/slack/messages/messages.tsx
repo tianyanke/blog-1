@@ -1,13 +1,14 @@
-import * as React from 'react'
-import Store from 'meng'
-import { Spinner, SpinnerType } from 'office-ui-fabric-react'
-import Scroller from 'react-iscroller'
+import * as React from "react"
+import Store from "meng"
+import { Spinner, SpinnerType } from "office-ui-fabric-react"
+import Scroller from "react-iscroller"
 
-import * as Style from './message_style'
+import * as Style from "./message_style"
 
-import { ISlackListType, ISlackUserType, ISlackMessage } from '../../../types/slack_type'
+import { ISlackListType, ISlackUserType, ISlackMessage } from "../../../types/slack_type"
 
 type Props = {
+	newmsg: ISlackMessage[]
 	user: ISlackUserType
 	post: ISlackListType
 	latest: string
@@ -15,9 +16,10 @@ type Props = {
 
 export default class Messages extends React.Component<Props, void> {
 	public render() {
+		const newmsg = this.props.newmsg
 		const user = this.props.user
 		const post = this.props.post
-		const mergedList = user && post && post.messages.map(message => {
+		const mergedList = user && post && newmsg.concat(post.messages).map(message => {
 			const userinfo = user.members.find(member => member.id === message.user as any)
 			return (
 				<div key={message.ts} className={Style.LIST_ITEM}>

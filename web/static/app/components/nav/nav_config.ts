@@ -25,7 +25,7 @@ export const groups =
 				{ name: "Reddit", url: "/reddit", key: "reddit", isExpanded: true },
 				{ name: "HackNews", url: "/hn", key: "hn" },
 				{ name: "Medium", url: "", key: "medium" },
-				{ name: "冒险岛", url: "/chat", key: "chat" }
+				{ name: "chat", url: "/chat", key: "chat" }
 			]
 		}
 	]

@@ -2,7 +2,8 @@ defmodule Coral.SlackWorker do
   import Slack
   
   def start_link() do
-    Slack.Bot.start_link(SlackBot, [], Application.get_env(:slack, :api_token))
+    {:ok, bot} = Slack.Bot.start_link(SlackBot, [], Application.get_env(:slack, :api_token))
+    Agent.start_link fn -> bot end, name: :slack
   end
 
   def handle_call(:pop, _from, [h | t]) do

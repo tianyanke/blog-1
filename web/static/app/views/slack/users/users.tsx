@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Persona, PersonaSize } from 'office-ui-fabric-react'
-import * as Style from './user_style'
-import { ISlackListType, ISlackUserType } from '../../../types/slack_type'
+import * as React from "react"
+import { Persona, PersonaSize } from "office-ui-fabric-react"
+import * as Style from "./user_style"
+import { ISlackListType, ISlackUserType } from "../../../types/slack_type"
 
 type Props = {
 	user: ISlackUserType
@@ -10,8 +10,6 @@ type Props = {
 export default class Users extends React.Component<Props, void> {
 	public render() {
 		const personas = this.props.user && this.props.user.members
-			.filter(member => member.is_bot === false)
-			.filter(member => member.deleted === false)
 			.map(member => ({
 				key: member.id,
 				className: Style.PERSONA,

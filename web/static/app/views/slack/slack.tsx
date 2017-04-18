@@ -6,10 +6,11 @@ import Users from "./users/users"
 import Flex from "../../components/flex/flex"
 import * as Style from "./slack_style"
 
-import { list, user } from "../../apis/slack_api"
-import { ISlackListType, ISlackUserType } from "../../types/slack_type"
+import { list, user, connect, push } from "../../apis/slack_api"
+import { ISlackListType, ISlackUserType, ISlackMessage } from "../../types/slack_type"
 
 type Props = {
+	newmsg: ISlackMessage[]
 	user: ISlackUserType
 	post: ISlackListType
 	latest: string
@@ -22,17 +23,18 @@ const injectedList = (currentStore: Props, nextStore: Props) => {
 		: null
 }
 
+@inject(connect, "newmsg")
 @inject(injectedList, "post")
 @inject(user, "user")
 @inject(() => list("C0PKC07FB", "0"), "post")
-@lift({ latest: "0" }, "Slack")
+@lift({ latest: "0", newmsg: [] as ISlackMessage[] }, "Slack")
 export default class Slack extends React.Component<Props, void> {
 	public render() {
 		return (
 			<div className={Style.SLACK}>
 				<Title />
 				<Flex flexGrow={1} flexDirection={"row"}>
-					<Messages post={this.props.post} user={this.props.user} latest={this.props.latest} />
+					<Messages newmsg={this.props.newmsg} post={this.props.post} user={this.props.user} latest={this.props.latest} />
 					<Users user={this.props.user} />
 				</Flex>
 			</div>
