@@ -6,9 +6,16 @@ export default class TextInput extends React.Component<{}, { text: string }> {
 	public state = { text: "" }
 	public render() {
 		return (
-			<TextField placeholder="快和我们聊聊吧~" maxLength={100} onKeyDown={this.onEnter} value={this.state.text} />
+			<TextField
+				placeholder="快和我们聊聊吧~"
+				maxLength={100}
+				onKeyDown={this.onEnter}
+				onChange={this.onChange}
+				value={this.state.text} />
 		)
 	}
+
+	public onChange = (event: React.KeyboardEvent<HTMLInputElement>) => this.setState({ text: event.currentTarget.value })
 
 	public onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		const value = event.currentTarget.value
