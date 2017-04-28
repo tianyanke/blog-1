@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Observable } from "rxjs"
-import Store, { lift, inject } from "meng"
+import Store, { lift, inject, listen } from "meng"
 import Scroller from "react-iscroller"
 import { TextField } from "office-ui-fabric-react"
 import UsernameLayout from "./layout/username/username_layout"
@@ -23,7 +23,7 @@ type Store = {
 const watchUser = (currentStcore: Props, nextStore: Props) =>
 	currentStcore.user !== nextStore.user ? connect : null
 
-@inject(watchUser, "messages")
+@listen(watchUser, "messages")
 @inject(Store, (rootStore: Store) => ({ user: rootStore.user }))
 @lift({ messages: [] as TMessage[] }, "Chat")
 export default class Chat extends React.Component<Props, void> {

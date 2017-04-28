@@ -1,5 +1,5 @@
 import * as React from "react"
-import { lift, inject } from "meng"
+import { lift, inject, listen } from "meng"
 import { FocusZone, FocusZoneDirection, List, TextField, Spinner, SpinnerType } from "office-ui-fabric-react"
 import Title from "./title/title"
 import Pivot from "./pivot/pivot"
@@ -15,7 +15,7 @@ type Props = {
 const watchDisplayApi = (currentStore: Props, nextStore: Props) =>
 	currentStore.display !== nextStore.display ? list(nextStore.display) : null
 
-@inject(watchDisplayApi, "posts")
+@listen(watchDisplayApi, "posts")
 @inject(() => list("newstories"), "posts")
 @lift({ display: "newstories" }, "HN")
 export default class HN extends React.Component<Props, void> {

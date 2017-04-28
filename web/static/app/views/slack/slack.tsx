@@ -1,5 +1,5 @@
 import * as React from "react"
-import Store, { lift, inject } from "meng"
+import Store, { lift, inject, listen } from "meng"
 import Messages from "./messages/messages"
 import Title from "./title/title"
 import TextInput from "./textinput/textinput"
@@ -25,7 +25,7 @@ const injectedList = (currentStore: Props, nextStore: Props) => {
 }
 
 @inject(connect, "newmsg")
-@inject(injectedList, "post")
+@listen(injectedList, (currentState, state) => ({}))
 @inject(user, "user")
 @inject(() => list("C0PKC07FB", "0"), "post")
 @lift({ latest: "0", newmsg: [] as ISlackMessage[] }, "Slack")
