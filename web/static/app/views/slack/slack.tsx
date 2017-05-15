@@ -8,27 +8,23 @@ import Flex from "../../components/flex/flex"
 import * as Style from "./slack_style"
 
 import { list, user, connect } from "../../apis/slack_api"
-import { ISlackListType, ISlackUserType, ISlackMessage } from "../../types/slack_type"
+import { ISlackListType, ISlackUserType, ISlackUserMessage, ISlackBotMessage } from "../../types/slack_type"
 
 type Props = {
-	newmsg: ISlackMessage[]
+	newmsg: Array<ISlackUserMessage & ISlackBotMessage>
 	user: ISlackUserType
 	post: ISlackListType
 	latest: string
 }
 
 const injectedList = (currentStore: Props, nextStore: Props) => {
-	return currentStore.latest !== nextStore.latest
-		? list("C0PKC07FB", nextStore.latest)
-			.do(newPost => newPost.messages = nextStore.post.messages.concat(newPost.messages))
-		: null
+	return currentStore.latest !== nextStore.latest ? list("C0PKC07FB", nextStore.latest) : null
 }
 
 @inject(connect, "newmsg")
-@listen(injectedList, (currentState, state) => ({}))
+@listen(injectedList, "post")
 @inject(user, "user")
-@inject(() => list("C0PKC07FB", "0"), "post")
-@lift({ latest: "0", newmsg: [] as ISlackMessage[] }, "Slack")
+@lift({ latest: "0", newmsg: [] as Array<ISlackUserMessage & ISlackBotMessage> }, "Slack")
 export default class Slack extends React.Component<Props, void> {
 	public render() {
 		return (

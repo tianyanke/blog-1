@@ -1,16 +1,30 @@
 export interface ISlackListType {
 	has_more: boolean
 	is_limited: boolean
-	messages: ISlackMessage[]
+	messages: Array<ISlackUserMessage & ISlackBotMessage>
 	ok: boolean
 	warning: string
 }
 
-export interface ISlackMessage {
+export interface ISlackUserMessage {
 	text: string
 	ts: string
 	type: "message"
-	user: Optional<ISlackMember>
+	user: string | Optional<ISlackMember>
+}
+
+export interface ISlackBotMessage {
+	bot_id: string
+	icons: {
+		image_32: string
+		image_48: string
+		image_72: string
+	}
+	subtype: "bot_message"
+	text: string
+	ts: string
+	type: "message"
+	username: string
 }
 
 export interface ISlackUserType {

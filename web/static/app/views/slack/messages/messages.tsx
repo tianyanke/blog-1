@@ -5,10 +5,10 @@ import Scroller from "react-iscroller"
 
 import * as Style from "./message_style"
 
-import { ISlackListType, ISlackUserType, ISlackMessage } from "../../../types/slack_type"
+import { ISlackListType, ISlackUserType, ISlackUserMessage, ISlackBotMessage } from "../../../types/slack_type"
 
 type Props = {
-	newmsg: ISlackMessage[]
+	newmsg: Array<ISlackUserMessage & ISlackBotMessage>
 	user: ISlackUserType
 	post: ISlackListType
 	latest: string
@@ -20,7 +20,12 @@ export default class Messages extends React.Component<Props, void> {
 		const user = this.props.user
 		const post = this.props.post
 		const mergedList = user && post && newmsg.concat(post.messages).map(message => {
-			const userinfo = user.members.find(member => member.id === message.user as any)
+			const userinfo = message.user ? user.members.find(member => member.id === message.user) : {
+				name: message.username,
+				profile: {
+					image_48: message.icons.image_48
+				}
+			}
 			return (
 				<div key={message.ts} className={Style.LIST_ITEM}>
 					<img className={Style.LIST_AVATAR} src={userinfo!.profile.image_48} />
