@@ -19,7 +19,7 @@ defmodule Coral.Mixfile do
   def application do
     [mod: {Coral, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :mariaex, :slack, :httpotion]]
+                    :phoenix_ecto, :mariaex, :slack, :httpotion, :uuid]]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,6 +40,7 @@ defmodule Coral.Mixfile do
      {:cowboy, "~> 1.0"},
      {:httpotion, "~> 3.0.2"},
      {:slack, "~> 0.10.0"},
+     {:uuid, "~> 1.1" },
      {:exrm, "~> 1.0"}]
   end
 

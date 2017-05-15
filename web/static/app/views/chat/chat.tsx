@@ -24,7 +24,7 @@ const watchUser = (currentStcore: Props, nextStore: Props) =>
 	currentStcore.user !== nextStore.user ? connect : null
 
 @listen(watchUser, "messages")
-@inject(Store, (rootStore: Store) => ({ user: rootStore.user }))
+@inject(Store, (currentState, rootStore: Store) => ({ user: rootStore.user }))
 @lift({ messages: [] as TMessage[] }, "Chat")
 export default class Chat extends React.Component<Props, void> {
 	public render() {
