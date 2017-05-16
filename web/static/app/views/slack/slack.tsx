@@ -17,12 +17,17 @@ type Props = {
 	latest: string
 }
 
-const injectedList = (currentStore: Props, nextStore: Props) => {
+const listenList = (currentStore: Props, nextStore: Props) => {
 	return currentStore.latest !== nextStore.latest ? list("C0PKC07FB", nextStore.latest) : null
 }
 
+const listSelector = (currentState: Props, state: ISlackListType) => {
+	currentState.post.messages = currentState.post.messages.concat(state.messages)
+	return { post: currentState.post }
+}
+
 @inject(connect, "newmsg")
-@listen(injectedList, "post")
+@listen(listenList, listSelector)
 @inject(user, "user")
 @lift({ latest: "0", newmsg: [] as Array<ISlackUserMessage & ISlackBotMessage> }, "Slack")
 export default class Slack extends React.Component<Props, void> {
