@@ -22,8 +22,9 @@ const listenList = (currentStore: Props, nextStore: Props) => {
 }
 
 const listSelector = (currentState: Props, state: ISlackListType) => {
-	currentState.post.messages = currentState.post.messages.concat(state.messages)
-	return { post: currentState.post }
+	const previousMessages = (currentState.post && currentState.post.messages) || []
+	state.messages = state.messages.concat(previousMessages)
+	return { post: state }
 }
 
 @inject(connect, "newmsg")
