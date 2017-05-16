@@ -23,7 +23,7 @@ const listenList = (currentStore: Props, nextStore: Props) => {
 
 const listSelector = (currentState: Props, state: ISlackListType) => {
 	const previousMessages = (currentState.post && currentState.post.messages) || []
-	state.messages = state.messages.concat(previousMessages)
+	state.messages = previousMessages.concat(state.messages)
 	return { post: state }
 }
 
