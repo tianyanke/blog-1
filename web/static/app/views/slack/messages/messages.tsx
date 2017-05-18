@@ -2,10 +2,10 @@ import * as React from "react"
 import Store from "meng"
 import { Spinner, SpinnerType } from "office-ui-fabric-react"
 import Scroller from "react-iscroller"
-
 import * as Style from "./message_style"
-
 import { ISlackListType, ISlackUserType, ISlackUserMessage, ISlackBotMessage } from "../../../types/slack_type"
+
+const outgoingBotIcon = "https://fst.slack-edge.com/12b5a/plugins/tester/assets/service_48.png"
 
 type Props = {
 	newmsg: Array<ISlackUserMessage & ISlackBotMessage>
@@ -23,7 +23,7 @@ export default class Messages extends React.Component<Props, void> {
 			const userinfo = message.user ? user.members.find(member => member.id === message.user) : {
 				name: message.username,
 				profile: {
-					image_48: message.icons.image_48
+					image_48: message.icons ? message.icons.image_48 : outgoingBotIcon
 				}
 			}
 			return (

@@ -15,7 +15,7 @@ export interface ISlackUserMessage {
 
 export interface ISlackBotMessage {
 	bot_id: string
-	icons: {
+	icons?: {
 		image_32: string
 		image_48: string
 		image_72: string
