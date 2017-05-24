@@ -16,6 +16,11 @@ export const groups =
 							name: "翻译",
 							url: "https://github.com/useroriented/useroriented.github.io",
 							key: "translation"
+						},
+												{
+							name: "issue_blog",
+							url: "https://github.com/huangbinjie/issue_blog/issues",
+							key: "issue_blog"
 						}
 					],
 					key: "",
