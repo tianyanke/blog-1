@@ -16,7 +16,6 @@ const watchDisplayApi = (currentStore: Props, nextStore: Props) =>
 	currentStore.display !== nextStore.display ? list(nextStore.display) : null
 
 @listen(watchDisplayApi, "posts")
-@inject(() => list("newstories"), "posts")
 @lift({ display: "newstories" }, "HN")
 export default class HN extends React.Component<Props, void> {
 	public render() {
