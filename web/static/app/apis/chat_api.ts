@@ -1,7 +1,7 @@
 import { socket } from "../socket/socket"
-import { Observable, ReplaySubject } from "rxjs"
+import { Observable, Subject } from "rxjs"
 
-const input$ = new ReplaySubject(1)
+const input$ = new Subject()
 
 export const connect = new Observable(observer => {
 	const channel = socket.channel("chat:lobby", {})

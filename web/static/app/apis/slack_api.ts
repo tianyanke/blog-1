@@ -1,8 +1,8 @@
-import { Observable, ReplaySubject } from "rxjs"
+import { Observable, Subject } from "rxjs"
 import { ISlackListType, ISlackUserType } from "../types/slack_type"
 import { socket } from "../socket/socket"
 
-const input$ = new ReplaySubject(1)
+const input$ = new Subject()
 
 export const connect = new Observable(observer => {
 	const channel = socket.channel("slack:lobby", {})
